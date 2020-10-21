@@ -79,10 +79,10 @@ func NewServer(ctx context.Context, name string, authzServer networkservice.Netw
 		vppagent.NewServer(),
 		recvfd.NewServer(),
 		mechanisms.NewServer(map[string]networkservice.NetworkServiceServer{
-			memif.MECHANISM:  memif.NewServer(baseDir),
-			kernel.MECHANISM: kernel.NewServer(),
-			vxlan.MECHANISM:  vxlan.NewServer(tunnelIP, vxlanInitFunc),
-			srv6.MECHANISM:   srv6.NewServer(),
+			memif.MECHANISM:     memif.NewServer(baseDir),
+			kernel.MECHANISM:    kernel.NewServer(),
+			vxlan.MECHANISM:     vxlan.NewServer(tunnelIP, vxlanInitFunc),
+			srv6.MECHANISM:      srv6.NewServer(),
 		}),
 		// Statically set the url we use to the unix file socket for the NSMgr
 		clienturl.NewServer(clientURL),
